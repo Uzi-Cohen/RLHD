@@ -59,8 +59,7 @@ public class ModelOverrideManager {
 				sceneManager.getLoadingLock().lock();
 				sceneManager.completeAllStreaming();
 
-				ModelOverride[] parsedOverrides = GadScapeData.merge(plugin.getGson(), "model_overrides.json", path.loadJson(plugin.getGson(), ModelOverride[].class),
-					ModelOverride[].class, null);
+				ModelOverride[] parsedOverrides = path.loadJson(plugin.getGson(), ModelOverride[].class);
 				if (parsedOverrides == null)
 					throw new IOException("Empty or invalid: " + path);
 
